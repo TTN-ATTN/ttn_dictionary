@@ -1,0 +1,2 @@
+# ttn_dictionary
+DICTIONARY PROJECT FOR IT003
