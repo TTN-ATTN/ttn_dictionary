@@ -1,13 +1,16 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from app.Trie import Trie, TrieNode
+from app.Trie import *
 from PyDictionary import PyDictionary
+from os.path import dirname, join, abspath
+project_root = dirname(dirname(abspath(__file__)))
+data_file = join(project_root, "database", "data_full.txt")
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 mydict = Trie()
-mydict.load_data(r"D:\CODE\ttn_dictionary\database\data_full.txt")
+mydict.load_data(data_file)
 en_dict = PyDictionary()
 
 @app.get("/", response_class=HTMLResponse)
