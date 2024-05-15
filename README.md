@@ -7,6 +7,6 @@ pip install -r requirements.txt
 After that, run main.py to deploy the website.
 For terminal:
 ```
-python main.py
+python3 main.py
 ```
 You can also use other IDE or Text editor to run the file. 
