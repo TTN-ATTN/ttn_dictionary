@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTN_DICT</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/autocomplete.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>MY BIG DICT<span style="font-size:0.4em;">ionary</span></h1>
+    </div>
+
+    <div class="container">
+        <div class="search-box">
+            <form id="search-form" action="/search" method="get">
+                <input id="search-input" type="text" name="word" placeholder="Type the word here...">
+                <select id="mode-select" name="mode">
+                    <option value="vi">English to Vietnamese</option>
+                    <option value="en">English</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+            <ul id="autocomplete-list" class="autocomplete-list">
+                {% for suggestion in suggestions %}
+                <li><a href="/search?word={{ suggestion }}&mode={{ mode }}">{{ suggestion }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="result" id="result">
+        <h2>{{word}}</h2>
+        {% if pronunciation %}
+        <h3>Pronunciation:</h3>
+        <p>/{{pronunciation}}</p>
+        {% endif %}
+        {% if details %}
+        <h3>Details:</h3>
+        <dl>
+            {% set is_part_of_speech = false %}
+            {% for detail in details %}
+            {% if detail.startswith('*') %}
+            {% if is_part_of_speech %}
+            </dd>
+            {% endif %}
+            <dt>{{ detail[1:] }}</dt>
+            <dd>
+                {% set is_part_of_speech = true %}
+                {% else %}
+                {{ detail }}<br>
+                {% endif %}
+                {% endfor %}
+                {% if is_part_of_speech %}
+            </dd>
+            {% endif %}
+        </dl>
+        {% else %}
+        <h3>NOT FOUND!</h3>
+        {% endif %}
+
+    </div>
+    </div>
+    <footer>&copy; 2024 TTN. All rights reserved</footer>
+</body>
+
+</html>
