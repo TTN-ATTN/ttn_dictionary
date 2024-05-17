@@ -1,0 +1,5 @@
+uvicorn
+fastapi
+flask
+futures<3.0.0
+PyDictionary==2.0.1
