@@ -20,10 +20,11 @@ history = load_history(history_file)
 
 @app.get("/", response_class=HTMLResponse)
 async def get_index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "history": history})
+    return templates.TemplateResponse("index.html", {"request": request, "history": history[:20]})
 
 @app.get("/search", response_class=HTMLResponse)
 async def search_word(request: Request, word: str = None, mode: str = 'vi'):
+    word = word.strip()
     word = word.lower()
     
     if word not in history:
@@ -38,11 +39,11 @@ async def search_word(request: Request, word: str = None, mode: str = 'vi'):
         
     return templates.TemplateResponse(
         "result.html",
-        {"request": request, "word": word.upper(), "pronunciation": pronunciation, "details": details, "history": history},
+        {"request": request, "word": word.upper(), "pronunciation": pronunciation, "details": details, "history": history[:20]},
     )
 
 @app.get("/autocomplete")
 async def autocomplete_word(prefix: str):
     suggestions = mydict.autocomplete(prefix.lower())
-    return {"suggestions": suggestions}
+    return {"suggestions": suggestions[:20]}
 

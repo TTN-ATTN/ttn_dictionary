@@ -4,7 +4,6 @@ class TrieNode:
         self.End = False
         self.data = None
 
-
 class Trie:
     def __init__(self):
         self.root = TrieNode()

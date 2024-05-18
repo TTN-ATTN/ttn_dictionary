@@ -1,16 +1,14 @@
-/* styles.css */
-
 /* Body styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background: #e4eefa;
     margin: 0;
     padding: 0;
 }
 
 /* Header styles */
 h1 {
-    color: #333;
+    color: rgb(3, 79, 120);
     text-align: center;
     margin: 20px 0;
 }
@@ -31,11 +29,36 @@ input[type="text"] {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #2362a4;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Style for the select dropdown */
+#mode-select {
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333; /* Text color */
+}
+
+/* Style for the dropdown arrow */
+#mode-select::-ms-expand {
+    display: none; /* Hide default arrow in IE */
+}
+
+#mode-select::after {
+    content: '\25BC'; /* Unicode character for arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Make arrow unclickable */
 }
 
 /* Result styles */
@@ -56,7 +79,7 @@ button {
 #show-history {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #2362a4;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -89,4 +112,13 @@ button {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.centered-footer {
+    color: #678;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
