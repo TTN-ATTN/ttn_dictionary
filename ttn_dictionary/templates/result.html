@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/autocomplete.js"></script>
+    <script src="/static/history.js"></script>
 </head>
 
 <body>
@@ -27,10 +28,21 @@
             </form>
             <ul id="autocomplete-list" class="autocomplete-list">
                 {% for suggestion in suggestions %}
-                <li><a href="/search?word={{ suggestion }}&mode={{ mode }}">{{ suggestion }}</a></li>
+                <li>{{ suggestion }}</li>
                 {% endfor %}
             </ul>
         </div>
+        
+        <div class="history-container">
+            <div class="history-button">
+                <button id="show-history">History</button>
+                <div id="history-list">
+                    {% for item in history %}
+                    <div class="history-item">{{ item }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>    
     </div>
 
     <div class="result" id="result">
@@ -64,7 +76,7 @@
         {% endif %}
 
     </div>
-    </div>
+    
     <footer>&copy; 2024 TTN. All rights reserved</footer>
 </body>
 

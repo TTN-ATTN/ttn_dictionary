@@ -8,11 +8,15 @@ $(document).ready(function() {
             suggestions.forEach(function(suggestion) {
                 var listItem = $("<li></li>");
                 var link = $("<a></a>").text(suggestion);
-                var mode = $("#mode-select").val();
-                link.attr("href", "/search?word=" + encodeURIComponent(suggestion) + "&mode=" + mode); 
                 listItem.append(link);
                 autocompleteList.append(listItem);
             });
         });
+    });
+
+    // Attach click event handler to dynamically created list items
+    $(document).on("click", "#autocomplete-list li", function() {
+        var suggestion = $(this).text();
+        $("#search-input").val(suggestion);
     });
 });

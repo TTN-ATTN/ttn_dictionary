@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/autocomplete.js"></script>
+    <script src="/static/history.js"></script>
 </head>
 
 <body>
+
+    <div>
+        <h1>MY BIG DICT<span style="font-size:0.4em;">ionary</span></h1>
+    </div>
+
     <div class="container">
         <div class="search-box">
             <form id="search-form" action="/search" method="get">
@@ -23,33 +29,25 @@
             </form>
             <ul id="autocomplete-list" class="autocomplete-list">
                 {% for suggestion in suggestions %}
-                <li><a href="/search?word={{ suggestion }}&mode={{ mode }}">{{ suggestion }}</a></li>
+                <li>{{ suggestion }}</li>
                 {% endfor %}
             </ul>
         </div>
-        <div class="history-button">
-            <button id="show-history">History</button>
-            <div id="history-list">
-                {% for item in history %}
-                <div class="history-item">{{ item }}</div>
-                {% endfor %}
+        
+        <div class="history-container">
+            <div class="history-button">
+                <button id="show-history">History</button>
+                <div id="history-list">
+                    {% for item in history %}
+                    <div class="history-item">{{ item }}</div>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div>
-        <h1>MY BIG DICT<span style="font-size:0.4em;">ionary</span></h1>
+        </div>        
     </div>
 
     <footer>&copy; 2024 TTN. All rights reserved</footer>
 
-    <script>
-        $(document).ready(function () {
-            $("#show-history").click(function () {
-                $("#history-list").toggle();
-            });
-        });
-    </script>
 </body>
 
 </html>

@@ -80,3 +80,13 @@ button {
 .history-item {
     margin-bottom: 5px;
 }
+
+.autocomplete-list li {
+    cursor: pointer;
+}
+
+.history-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
