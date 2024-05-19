@@ -1,5 +1,11 @@
 # DICTIONARY PROJECT FOR IT003
-After cloning the repository, you need to install the necessary modules and framework to run the app:
+After cloning the repository, you need to switch to branch master with the following commands:
+```
+cd ttn_dictionary
+git checkout master
+```
+
+Then, install the necessary modules and framework to run the app:
 ```
 pip install -r requirements.txt
 ```
@@ -9,4 +15,4 @@ For terminal:
 ```
 python3 main.py
 ```
-You can also use other IDE or Text editor to run the file. 
+You can also use other IDE or text editors to run the file. 
