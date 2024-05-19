@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h1>BIG BLUE DICT<span style="font-size:0.4em;">ionary</span></h1>
+    <h1>MY BIG DICT<span style="font-size:0.4em;">ionary</span></h1>
     <div class="search-box">
         <form action="/search" method="get">
             <select id="mode-select" name="mode">
@@ -23,11 +23,9 @@
             <input id="search-input" type="text" name="word" placeholder="Type the word here...">
             <button class="fas fa-search" type="submit"></button>
         </form>
-        <ul id="autocomplete-list" class="autocomplete-list">
-            {% for suggestion in suggestions %}
-            <li>{{ suggestion }}</li>
-            {% endfor %}
-        </ul>
+        <div id="autocomplete-container">
+            <ul id="autocomplete-list" class="autocomplete-list"></ul>
+        </div>
     </div>
 
     <div class="history-container">
@@ -41,39 +39,8 @@
         </div>
     </div>
 
-    <div class="result" id="result">
-        <h2>{{word}}</h2>
-        {% if pronunciation %}
-        <h3>Pronunciation:</h3>
-        <p>/{{pronunciation}}</p>
-        {% endif %}
-        {% if details %}
-        <h3>Details:</h3>
-        <dl>
-            {% set is_part_of_speech = false %}
-            {% for detail in details %}
-            {% if detail.startswith('*') %}
-            {% if is_part_of_speech %}
-            </dd>
-            {% endif %}
-            <dt>{{ detail[1:] }}</dt>
-            <dd>
-                {% set is_part_of_speech = true %}
-                {% else %}
-                {{ detail }}<br>
-                {% endif %}
-                {% endfor %}
-                {% if is_part_of_speech %}
-            </dd>
-            {% endif %}
-        </dl>
-        {% else %}
-        <h3>NOT FOUND!</h3>
-        {% endif %}
-
-    </div>
-
     <footer class="centered-footer">&copy; 2024 TTN. All rights reserved</footer>
+
 </body>
 
 </html>

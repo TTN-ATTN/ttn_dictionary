@@ -17,6 +17,7 @@ h1 {
 .search-box {
     text-align: center;
     margin-bottom: 20px;
+    position: relative; /* Ensure relative positioning to place autocomplete suggestions */
 }
 
 input[type="text"] {
@@ -104,10 +105,36 @@ button {
     margin-bottom: 5px;
 }
 
+/* Autocomplete list styles */
+#autocomplete-container {
+    position: absolute;
+    width: calc(100% - 22px); /* Adjust width to match the input field */
+    z-index: 2;
+    top: 52px; /* Adjust this value based on your input field height */
+}
+
+.autocomplete-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    background-color: white;
+    max-height: 150px; /* Adjust the max height */
+    overflow-y: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .autocomplete-list li {
+    padding: 10px;
     cursor: pointer;
 }
 
+.autocomplete-list li:hover {
+    background-color: #f0f0f0;
+}
+
+/* history */
 .history-container {
     position: absolute;
     top: 0;

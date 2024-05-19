@@ -6,13 +6,11 @@ $(document).ready(function() {
             return; // Exit function if input is empty
         }
         $.get("/autocomplete?prefix=" + prefix, function(data) {
-            var suggestions = data.suggestions.slice(0, 20); // Limit suggestions to first 20 elements
+            var suggestions = data.suggestions.slice(0, 10); // Limit suggestions to first 10 elements
             var autocompleteList = $("#autocomplete-list");
             autocompleteList.empty();
             suggestions.forEach(function(suggestion) {
-                var listItem = $("<li></li>");
-                var link = $("<a></a>").text(suggestion);
-                listItem.append(link);
+                var listItem = $("<li></li>").text(suggestion);
                 autocompleteList.append(listItem);
             });
         });

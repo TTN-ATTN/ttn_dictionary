@@ -20,7 +20,10 @@ history = load_history(history_file)
 
 @app.get("/", response_class=HTMLResponse)
 async def get_index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "history": history[:20]})
+    his = []
+    for h in history:
+        his.append(h)
+    return templates.TemplateResponse("index.html", {"request": request, "history": his[:20]})
 
 @app.get("/search", response_class=HTMLResponse)
 async def search_word(request: Request, word: str = None, mode: str = 'vi'):
@@ -32,6 +35,10 @@ async def search_word(request: Request, word: str = None, mode: str = 'vi'):
             h.write(word + '\n')
         history.add(word)
 
+    his = []
+    for h in history:
+        his.append(h)
+    
     if mode == 'vi':
         details, pronunciation = vi_mode(word, mydict)
     else:
@@ -39,7 +46,7 @@ async def search_word(request: Request, word: str = None, mode: str = 'vi'):
         
     return templates.TemplateResponse(
         "result.html",
-        {"request": request, "word": word.upper(), "pronunciation": pronunciation, "details": details, "history": history[:20]},
+        {"request": request, "word": word.upper(), "pronunciation": pronunciation, "details": details, "history": his[:20]},
     )
 
 @app.get("/autocomplete")
