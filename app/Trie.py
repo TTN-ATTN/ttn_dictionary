@@ -31,7 +31,7 @@ class Trie:
         """
         Insert a word and its associated data into the Trie.
 
-        Args:
+        Arguments:
             word (str): The word to be inserted into the Trie.
             data (any): The associated data for the word.
         """
@@ -50,7 +50,7 @@ class Trie:
         """
         Search for a word in the Trie and return its associated data if found.
 
-        Args:
+        Arguments:
             word (str): The word to search for in the Trie.
 
         Returns:
@@ -69,7 +69,7 @@ class Trie:
         """
         Load data from a file into the Trie.
 
-        Args:
+        Arguments:
             filename (str): The name of the file from which to load data into the Trie.
         """
         with open(filename, 'r', encoding='utf-8') as file:
@@ -92,7 +92,7 @@ class Trie:
         """
         Provide autocomplete suggestions based on a given prefix.
 
-        Args:
+        Arguments:
             prefix (str): The prefix string for which autocomplete suggestions are to be provided.
 
         Returns:
@@ -111,10 +111,12 @@ class Trie:
         """
         Perform a depth-first search to find all words with the given prefix.
 
-        Args:
+        Arguments:
             node (TrieNode): The current node in the Trie during the depth-first search.
             prefix (str): The prefix string accumulated so far during the search.
             suggestions (list): A list to store the autocomplete suggestions found during the search.
+        
+        Return: None
         """
         if node.End:
             suggestions.append(prefix)
@@ -127,7 +129,7 @@ class Trie:
 
         This method is for testing purposes.
 
-        Args:
+        Arguments:
             word (str): The word whose details are to be printed if found in the Trie.
         """
         data = self.search(word)

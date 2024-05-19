@@ -20,24 +20,33 @@ history = load_history(history_file)
 
 @app.get("/", response_class=HTMLResponse)
 async def get_index(request: Request):
-    his = []
-    for h in history:
-        his.append(h)
-    return templates.TemplateResponse("index.html", {"request": request, "history": his[:20]})
+    """
+    Index page.
+    
+    Arguments:
+        request: The HTTP request object.
+        
+    Returns: The HTML response for the index page.
+    """
+    return templates.TemplateResponse("index.html", {"request": request, "history": history[-20:]})
 
 @app.get("/search", response_class=HTMLResponse)
 async def search_word(request: Request, word: str = None, mode: str = 'vi'):
+    """
+    Searches for a word in the specified mode (Vietnamese or English) and returns the search results page.
+    
+    Arguments:
+        request: The HTTP request object.
+        word: The word to search for (optional).
+        mode: The mode for the search, either 'vi' (Vietnamese) or 'en' (English). Default is 'vi'.
+    
+    Returns: The HTML response for the search results page.
+    """
     word = word.strip()
     word = word.lower()
-    
-    if word not in history:
-        with open(history_file, 'a') as h:
-            h.write(word + '\n')
-        history.add(word)
-
-    his = []
-    for h in history:
-        his.append(h)
+    history.append(word)
+    with open(history_file, 'a') as h:
+        h.write(word + '\n')
     
     if mode == 'vi':
         details, pronunciation = vi_mode(word, mydict)
@@ -46,11 +55,19 @@ async def search_word(request: Request, word: str = None, mode: str = 'vi'):
         
     return templates.TemplateResponse(
         "result.html",
-        {"request": request, "word": word.upper(), "pronunciation": pronunciation, "details": details, "history": his[:20]},
+        {"request": request, "word": word.upper(), "pronunciation": pronunciation, "details": details, "history": history[-20:]},
     )
 
 @app.get("/autocomplete")
 async def autocomplete_word(prefix: str):
+    """
+    Autocomplete suggestions for the given prefix.
+  
+    Arguments:
+        prefix: The prefix string for which autocomplete suggestions are to be provided.
+    
+    Returns: A JSON response containing the autocomplete suggestions.
+    """
     suggestions = mydict.autocomplete(prefix.lower())
     return {"suggestions": suggestions[:20]}
 

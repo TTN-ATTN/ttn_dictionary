@@ -88,6 +88,12 @@ button {
 }
 
 /* History list styles */
+.history-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 #history-list {
     display: none;
     max-height: 200px;
@@ -103,6 +109,12 @@ button {
 
 .history-item {
     margin-bottom: 5px;
+    cursor: pointer; /* Change cursor to pointer when hovering over history items */
+}
+
+/* Style for hover effect */
+.history-item:hover {
+    background-color: #f0f0f0; /* Change background color when hovering over history items */
 }
 
 /* Autocomplete list styles */
@@ -134,12 +146,7 @@ button {
     background-color: #f0f0f0;
 }
 
-/* history */
-.history-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
+
 
 .centered-footer {
     color: #678;

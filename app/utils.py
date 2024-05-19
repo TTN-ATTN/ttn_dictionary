@@ -4,7 +4,7 @@ def vi_mode(word, vi_dict):
     """
     Searches for a word in the Vietnamese dictionary and returns its details and pronunciation.
 
-    Args:
+    Arguments:
         word (str): The word to search for in the Vietnamese dictionary.
         vi_dict (Trie): The Vietnamese dictionary to search in.
 
@@ -24,7 +24,7 @@ def en_mode(word, en_dict):
     """
     Searches for a word in the English dictionary and returns its details and pronunciation.
 
-    Args:
+    Arguments:
         word (str): The word to search for in the English dictionary.
         en_dict (PyDictionary): The English dictionary to search in.
 
@@ -45,7 +45,7 @@ def load_history(history_file):
     """
     Loads and returns the search history from a file.
 
-    Args:
+    Arguments:
         history_file (str): The file from which to load the search history.
 
     Returns:
@@ -53,4 +53,4 @@ def load_history(history_file):
     """
     with open(history_file, 'r') as h:
         history = h.read().splitlines()
-    return set(history)
+    return history
