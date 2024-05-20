@@ -1,5 +1,3 @@
-# utils.py
-
 def vi_mode(word, vi_dict):
     """
     Searches for a word in the Vietnamese dictionary and returns its details and pronunciation.

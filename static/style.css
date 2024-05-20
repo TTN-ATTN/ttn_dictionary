@@ -1,25 +1,34 @@
-/* Body styles */
-body {
+/**
+ * Basic styles for the body element.
+ */
+ body {
     font-family: Arial, sans-serif;
     background: #e4eefa;
     margin: 0;
     padding: 0;
 }
 
-/* Header styles */
+/**
+ * Styles for header elements.
+ */
 h1 {
     color: rgb(3, 79, 120);
     text-align: center;
     margin: 20px 0;
 }
 
-/* Search box styles */
+/**
+ * Styles for the search box container.
+ */
 .search-box {
     text-align: center;
     margin-bottom: 20px;
-    position: relative; /* Ensure relative positioning to place autocomplete suggestions */
+    position: relative;
 }
 
+/**
+ * Styles for the text input field.
+ */
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
@@ -27,6 +36,9 @@ input[type="text"] {
     border-radius: 5px;
 }
 
+/**
+ * Styles for buttons.
+ */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -37,32 +49,41 @@ button {
     cursor: pointer;
 }
 
-/* Style for the select dropdown */
+/**
+ * Styles for the select dropdown.
+ */
 #mode-select {
-    width: 200px; /* Adjust width as needed */
+    width: 200px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    color: #333; /* Text color */
+    color: #333;
 }
 
-/* Style for the dropdown arrow */
+/**
+ * Hide the default dropdown arrow in IE.
+ */
 #mode-select::-ms-expand {
-    display: none; /* Hide default arrow in IE */
+    display: none;
 }
 
+/**
+ * Custom arrow for the select dropdown.
+ */
 #mode-select::after {
-    content: '\25BC'; /* Unicode character for arrow */
+    content: '\25BC';
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-    pointer-events: none; /* Make arrow unclickable */
+    pointer-events: none;
 }
 
-/* Result styles */
+/**
+ * Styles for result containers.
+ */
 .result {
     background-color: #fff;
     padding: 20px;
@@ -70,13 +91,18 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* History button styles */
+/**
+ * Styles for history button container.
+ */
 .history-button {
     position: relative;
     display: inline-block;
     margin-left: 10px;
 }
 
+/**
+ * Styles for the history button.
+ */
 #show-history {
     padding: 10px 20px;
     font-size: 16px;
@@ -87,13 +113,18 @@ button {
     cursor: pointer;
 }
 
-/* History list styles */
+/**
+ * Styles for history container.
+ */
 .history-container {
     position: absolute;
     top: 0;
     right: 0;
 }
 
+/**
+ * Styles for the history list.
+ */
 #history-list {
     display: none;
     max-height: 200px;
@@ -107,47 +138,64 @@ button {
     z-index: 1;
 }
 
+/**
+ * Styles for history items.
+ */
 .history-item {
     margin-bottom: 5px;
-    cursor: pointer; /* Change cursor to pointer when hovering over history items */
+    cursor: pointer;
 }
 
-/* Style for hover effect */
+/**
+ * Hover effect for history items.
+ */
 .history-item:hover {
-    background-color: #f0f0f0; /* Change background color when hovering over history items */
+    background-color: #f0f0f0;
 }
 
-/* Autocomplete list styles */
+/**
+ * Styles for the autocomplete container.
+ */
 #autocomplete-container {
     position: absolute;
-    width: calc(100% - 22px); /* Adjust width to match the input field */
+    width: calc(100% - 22px);
     z-index: 2;
-    top: 52px; /* Adjust this value based on your input field height */
+    top: 52px;
 }
 
+/**
+ * Styles for the autocomplete list.
+ */
 .autocomplete-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
     border: 1px solid #ccc;
     background-color: white;
-    max-height: 150px; /* Adjust the max height */
+    max-height: 150px;
     overflow-y: auto;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/**
+ * Styles for autocomplete list items.
+ */
 .autocomplete-list li {
     padding: 10px;
     cursor: pointer;
 }
 
+/**
+ * Hover effect for autocomplete list items.
+ */
 .autocomplete-list li:hover {
     background-color: #f0f0f0;
 }
 
-
-
+/**
+ * Styles for the centered footer.
+ */
 .centered-footer {
     color: #678;
     position: fixed;

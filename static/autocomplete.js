@@ -10,7 +10,7 @@ $(document).ready(function() {
             return;
         }
         $.get("/autocomplete?prefix=" + prefix, function(data) {
-            var suggestions = data.suggestions.slice(0, 10);
+            var suggestions = data.suggestions.slice(0, 20);
             var autocompleteList = $("#autocomplete-list");
             autocompleteList.empty();
             suggestions.forEach(function(suggestion) {

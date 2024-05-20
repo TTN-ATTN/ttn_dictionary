@@ -105,3 +105,41 @@ Attributes:
   - **Arguments:**
     - **`history_file`**: The file from which to load the search history.
   - **Returns:** A list containing the search history.
+
+---
+
+## autocomplete.js
+
+**`$(document).ready(function() {`**
+- Initializes the autocomplete functionality when the document is ready.
+
+**`$("#search-input").on("input", function() {`**
+- Event handler for input event on #search-input element.
+- Fetches autocomplete suggestions based on input prefix.
+  - **Arguments:** None
+  - **Returns:** None
+
+**`$(document).on("click", "#autocomplete-list li", function() {`**
+- Event handler for click event on dynamically created list items within #autocomplete-list.
+- Populates the search input with the selected suggestion.
+  - **Arguments:** None
+  - **Returns:** None
+
+---
+
+## history.js
+
+**`$(document).ready(function () {`**
+- Initializes the history functionality when the document is ready.
+
+**`$("#show-history").click(function () {`**
+- Event handler for click event on #show-history element.
+- Toggles the visibility of the #history-list element.
+  - **Arguments:** None
+  - **Returns:** None
+
+**`$(document).on("click", ".history-item", function () {`**
+- Event handler for click event on dynamically created .history-item elements.
+- Sets the value of #search-input with the clicked word and hides the #history-list.
+  - **Arguments:** None
+  - **Returns:** None
